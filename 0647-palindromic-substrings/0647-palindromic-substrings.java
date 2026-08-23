@@ -1,36 +1,47 @@
 class Solution {
 
-    public int checkPalindrome(String s, int left, int right) {
+    public boolean isPalindrome(String s) {
 
-        int count = 0;
+        int low = 0;
+        int high = s.length() - 1;
 
-        while(left >= 0 &&
-              right < s.length() &&
-              s.charAt(left) == s.charAt(right)) {
+        while(low <= high) {
 
-            count++;
+            if(s.charAt(low) != s.charAt(high)) {
+                return false;
+            }
 
-            left--;
-            right++;
+            low++;
+            high--;
         }
 
-        return count;
+        return true;
     }
 
     public int countSubstrings(String s) {
 
-        int ans = 0;
+        ArrayList<String> list = new ArrayList<>();
 
+        // Generate all substrings
         for(int i = 0; i < s.length(); i++) {
 
-            // Odd length palindrome
-            ans += checkPalindrome(s, i, i);
+            for(int j = i + 1; j <= s.length(); j++) {
 
-            // Even length palindrome
-            ans += checkPalindrome(s, i, i + 1);
+                list.add(s.substring(i, j));
+            }
         }
 
-        return ans;
+        // Check every substring
+        int count = 0;
+
+        for(int i = 0; i < list.size(); i++) {
+
+            if(isPalindrome(list.get(i))) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
 
