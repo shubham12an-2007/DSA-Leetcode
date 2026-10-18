@@ -9,11 +9,14 @@ int main() {
 	    int n , m ;
 	    cin >> n >> m ;
 	    
-	    if((n + m) % 2  == 0){
-	        cout << "NO" << endl ;
+	    if(n  % 2  == 0 && m % 2 == 0){
+	        cout << "YES" << endl ;
+	    }
+	    else if(n % 2 == 0 || m % 2  == 0){
+	        cout << "YES" << endl ;
 	    }
 	    else {
-	        cout  << "YES" << endl ;
+	        cout << "NO" << endl ;
 	    }
 	}
     
