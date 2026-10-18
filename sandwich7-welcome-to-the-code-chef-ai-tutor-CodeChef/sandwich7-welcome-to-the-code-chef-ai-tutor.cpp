@@ -9,14 +9,16 @@ int main() {
 	
 	while(b >=  2){
 	   b =  b - 2;
-	   if(h > c){
+	   if(h >= c){
 	       h = h -1;
 	       cnt ++ ;
 	   }
-	   else{
-	       c = c - 1;
+	   else if( c >  0 &&  h == 0){
+	       c=   c- 1;
 	       cnt ++ ;
 	   }
+	  
+	  
 	  
 	}
 	
