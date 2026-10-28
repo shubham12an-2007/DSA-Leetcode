@@ -1,20 +1,23 @@
+#include <vector>
+#include <set>
+
 class Solution {
 public:
-    int removeDuplicates(vector<int>& nums) {
-    int i = 0;
-    for (int j = 1; j < nums.size(); j++)
-    {
-        if (nums[i] != nums[j])
-        {
-            i++;
-            nums[i] = nums[j];
-        }
-    }
-    return i + 1;
+    int removeDuplicates(std::vector<int>& nums) {
+        // 1. Insert all elements into a set to remove duplicates
+        std::set<int> uniqueElements(nums.begin(), nums.end());
         
-       
+        // 2. Write the unique elements back into the front of the original array
+        int index = 0;
+        for (int val : uniqueElements) {
+            nums[index++] = val;
+        }
+        
+        // 3. Return the number of unique elements
+        return uniqueElements.size();
     }
 };
+
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
